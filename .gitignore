@@ -2,3 +2,6 @@ todo_backend/__pycache__
 todo_project/todo_backend/venv/
 todo_backend/venv/
 todo_backend/venv/*
+todo_backend/todo_backend/tasks/__pycache__/
+todo_backend/todo_backend/tasks/migrations/__pycache__/
+todo_backend/todo_backend/todo_backend/__pycache__/

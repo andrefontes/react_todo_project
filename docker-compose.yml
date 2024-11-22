@@ -17,16 +17,16 @@ services:
       - DEBUG=True
       - DJANGO_ALLOWED_HOSTS=localhost 127.0.0.1 [::1]
       - DATABASE_URL=sqlite:///db.sqlite3
-    depends_on:
-      - db
+
 
 
 
 
   frontend:
-    build: ./todo-frontend/todo-frontend
+    build: ./todo-frontend
     volumes:
-      - ./todo-frontend:/app
+      #- ./todo-frontend:/app
+      - ./todo-frontend/todo-frontend:/app
     ports:
       - "3000:3000"
     depends_on:

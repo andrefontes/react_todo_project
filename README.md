@@ -137,6 +137,24 @@ Iniciar os Containers:
    docker-compose up
    ```
 
+
+CRIAR UM SUPERUSUÁRIO:
+
+Se ainda não criou nenhum usuário, você pode criar um superusuário que pode ser usado para testes e administração. No diretório do backend, execute:
+
+   ```bash
+   python manage.py createsuperuser
+   ```
+=> Siga as instruções para definir um nome de usuário, e-mail e senha.
+
+1 - Acesse a interface de administração do Django em http://127.0.0.1:8000/admin.
+
+2 - Faça login com o superusuário que você criou.
+
+31 - Navegue até a seção de usuários e crie um novo usuário, definindo o nome de usuário e a senha.
+
+
+
 ## Arquitetura
 
 A aplicação segue uma arquitetura baseada em:
