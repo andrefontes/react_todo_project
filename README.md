@@ -64,12 +64,37 @@ A aplicação permite o gerenciamento de tarefas, oferecendo funcionalidades com
     ```
 
 6. Inicie os servidores:
+        - INICIAR BACK-END
 
-    - Front-end: `npm start` (na pasta `todo-frontend`)
-	Acesse o aplicativo em `http://127.0.0.1:3000/`.
+        Ative o ambiente virtual:
+        No terminal, navegue até o diretório "todo_backend" onde estiver a pasta "venv"
+        .\venv\Scripts\activate
+
+        cd .\todo_backend\
+        python manage.py runserver
+
+
+        CASO NÃO FUNCIONE ETAPAS ANTERIORES, FAÇA:
+
+        Instale o django-rest-knox:
+        pip install django-rest-knox
+
+        Adicione o django-rest-knox ao requirements.txt:
+        pip freeze > requirements.txt
+
+        Execute as migrações do Django: 
+        python manage.py migrate
+
+        EXECUTE ETAPAS ANTERIORES
+
+        Acesse o aplicativo em: http://localhost:8000/admin/
+
+
+    - INICIAR FONT-END
+    `npm start` (na pasta `todo-frontend`)
+    Acesse o aplicativo em: `http://127.0.0.1:3000/`
 	
-    - Back-end: `python manage.py runserver` (na pasta `todo-backend`)
-	Acesse o aplicativo em `http://127.0.0.1:8000/`.
+
 
 ## Rodando com Docker (Opcional)
 
