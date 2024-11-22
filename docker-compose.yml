@@ -3,16 +3,16 @@ services:
     build: ./todo_backend
     command: ["sh", "-c", "python manage.py migrate && python manage.py runserver 0.0.0.0:8000"]
     volumes:
-      - ./todo_backend:/app
+      - ./todo_backend:/todo-backend
     ports:
       - "8000:8000"
     env_file:
       - ./todo_backend/.env
 
   frontend:
-    build: ./frontend
+    build: ./todo-frontend/todo-frontend
     volumes:
-      - ./frontend:/app
+      - ./todo-frontend:/todo-frontend
     ports:
       - "3000:3000"
     depends_on:

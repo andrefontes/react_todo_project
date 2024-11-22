@@ -105,10 +105,36 @@ Acesse o aplicativo em: `http://127.0.0.1:3000/`
 
 ## Rodando com Docker (Opcional)
 
-1. Crie os contêineres com Docker Compose:
+1. Executar Docker:
+
+Para garantir que o Dockerfile e o docker-compose.yml funcionem corretamente, é recomendável parar quaisquer instâncias do backend e frontend que estejam rodando fora do Docker. Isso evita conflitos de portas e garante que os containers Docker possam iniciar sem problemas.
+
+Para encerrar todos os processos que estão utilizando as portas 8000 e 3000 de uma vez só (geralmente com Ctrl + C no terminal):
+
+porta 8000 (back-end)
 
    ```bash
-   docker-compose up --build
+   Get-NetTCPConnection -LocalPort 8000 | ForEach-Object {Stop-Process -Id $_.OwningProcess -Force}
+   ```
+
+porta 3000 (front-end)
+
+   ```bash
+   Get-NetTCPConnection -LocalPort 3000 | ForEach-Object {Stop-Process -Id $_.OwningProcess -Force}
+   ```
+
+
+
+Navegue até o diretório do projeto onde o `docker-compose.yml` está localizado:
+
+Construir os Containers:
+   ```bash
+   docker-compose build
+   ```
+
+Iniciar os Containers:
+   ```bash
+   docker-compose up
    ```
 
 ## Arquitetura
