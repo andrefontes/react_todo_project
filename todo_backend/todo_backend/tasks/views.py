@@ -9,6 +9,8 @@ from rest_framework.decorators import action
 from rest_framework import generics
 from rest_framework.pagination import PageNumberPagination
 from rest_framework.generics import ListAPIView
+import requests
+from django.http import JsonResponse
 
 
 class TaskViewSet(viewsets.ModelViewSet):
@@ -75,3 +77,14 @@ class CategoryViewSet(viewsets.ModelViewSet):
     queryset = Category.objects.all().order_by('id')
     serializer_class = CategorySerializer
     #pagination_class = CategoryPagination  # Definindo a paginação
+
+
+
+def get_news(request):
+    api_key = '005bac6fcad647bba1137a9ed0f4e211'
+    url = f'https://newsapi.org/v2/top-headlines?country=us&apiKey={api_key}'
+    response = requests.get(url)
+    news = response.json()
+    return JsonResponse(news['articles'], safe=False)
+
+
