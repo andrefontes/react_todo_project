@@ -1,14 +1,17 @@
-# Dockerfile
+# Usando a imagem oficial do Python slim
 FROM python:3.9-slim
 
-ENV PYTHONDONTWRITEBYTECODE 1
-ENV PYTHONUNBUFFERED 1
-
+# Definindo o diretório de trabalho no contêiner
 WORKDIR /app
 
-COPY requirements.txt /app/
+# Copiando o arquivo de requisitos para o diretório de trabalho
+COPY requirements.txt .
+
+# Instalando as dependências do Python
 RUN pip install --no-cache-dir -r requirements.txt
 
-COPY . /app/
+# Copiando o restante do código da aplicação
+COPY . .
 
-CMD ["python", "manage.py", "runserver", "0.0.0.0:8000"]
+# Comando para rodar a aplicação
+CMD ["python", "todo_backend/manage.py", "runserver", "0.0.0.0:8000"]
