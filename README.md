@@ -70,28 +70,41 @@ A aplicação permite o gerenciamento de tarefas, oferecendo funcionalidades com
 - INICIAR BACK-END
   Ative o ambiente virtual:
   No terminal, navegue até o diretório "todo_backend" onde estiver a pasta "venv"
-  `bash
-    .\venv\Scripts\activate
-    cd .\todo_backend\
-    python manage.py runserver
-    `
+
+  ```bash
+   .\venv\Scripts\activate
+   cd .\todo_backend\
+   python manage.py runserver
+   ```
+
+Em caso de erro, faça (No PowerShell):
+
+   ```bash
+   Remove-Item -Recurse -Force .\venv
+   python -m venv venv
+   .\venv\Scripts\Activate.ps1
+   ```
+==> Tente os passos anteriores novamente
+
+
 
 CASO NÃO FUNCIONE ETAPAS ANTERIORES, FAÇA:
 
 Instale o django-rest-knox:
-`bash
-    pip install django-rest-knox
-    `
+   ```bash
+   pip install django-rest-knox
+   ```
 
 Adicione o django-rest-knox ao requirements.txt:
-`bash
-    pip freeze > requirements.txt
-    `
+   ```bash
+   pip freeze > requirements.txt
+   ```
 
 Execute as migrações do Django:
-`bash
-    python manage.py migrate
-    `
+   ```bash
+   python manage.py migrate
+   ```
+
 EXECUTE ETAPAS ANTERIORES
 
 Acesse o aplicativo em: `http://localhost:8000/admin/`
@@ -155,6 +168,31 @@ Se ainda não criou nenhum usuário, você pode criar um superusuário que pode 
 
 
 
+### Testes de Front-end (Selenium)
+
+Testes de interface também podem ser realizados com Selenium.
+
+1. Instalar Selenium e WebDriver. 
+Navegue até a pasta do front-end (todo-frontend) e instale o Selenium:
+
+   ```bash
+   npm install selenium-webdriver
+   ```
+
+2. Executando o Teste. 
+Certifique-se de que o servidor front-end esteja em execução (npm start dentro de todo-frontend). Então, execute o teste:
+
+   ```bash
+   node tests/todo.test.js
+   ```
+
+2. Executar os testes com:
+
+   ```bash
+   npm run test:selenium
+   ```
+
+
 ## Arquitetura
 
 A aplicação segue uma arquitetura baseada em:
@@ -175,19 +213,17 @@ A aplicação segue uma arquitetura baseada em:
 
 Certifique-se de que o `pytest` está instalado:
 
-```bash
-pip install pytest pytest-django
-```
+   ```bash
+   pip install pytest pytest-django
+   ```
 
 Para rodar os testes:
 
-```bash
-pytest
-```
+   ```bash
+   pytest
+   ```
 
-### Testes de Front-end (Selenium)
 
-Testes de interface também podem ser realizados com Selenium.
 
 ## Contato
 
